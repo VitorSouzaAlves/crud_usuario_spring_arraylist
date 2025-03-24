@@ -1,15 +1,15 @@
 package com.senai.crud_usuario_spring_arraylist.entity;
 
 public class Usuario {
-    private int id;
+    private Integer id;
     private String nome;
 
-    public Usuario(int id, String nome) {
+    public Usuario(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
