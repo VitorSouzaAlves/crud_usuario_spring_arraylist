@@ -13,6 +13,7 @@ public class CrudApplicationController {
 
 
     public CrudApplicationController(){
+        usuarios.add(new Usuario(1, "Gabrielle"));
         usuarios.add(new Usuario(2, "Vitor"));
         usuarios.add(new Usuario(3, "Matheus"));
         usuarios.add(new Usuario(4, "Pedro"));
@@ -39,5 +40,26 @@ public class CrudApplicationController {
             }
         }
         return "Usuário não encontrado...";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deletarUsuario(@PathVariable Integer id){
+        for (Usuario u : usuarios){
+            if (u.getId().equals(id)){
+                usuarios.remove(u);
+                return "Usuário deletado com sucesso!!";
+            }
+        }
+        return "Usuário não encontrado...";
+    }
+
+    @GetMapping("/{id}")
+    public Usuario getUsuarioPorId(@PathVariable Integer id){
+        for (Usuario u : usuarios){
+            if (u.getId().equals(id)){
+                return u;
+            }
+        }
+        return null;
     }
 }
